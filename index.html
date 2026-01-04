@@ -378,8 +378,7 @@
     .kicker{ max-width: 100%; }
 
     /* ===== EXTRA mobile polish (ΔΕΝ χαλάει desktop) ===== */
-    @media (max-width: 768px)
-    {
+    @media (max-width: 768px){
       .wrap{ padding: 0 16px; }
 
       .hero{ padding: 34px 0 18px; }
@@ -427,6 +426,57 @@
         gap: 8px;
       }
     }
+    /* ===== Header fix για κινητά (Messenger / iOS browsers) ===== */
+    @media (max-width: 820px), (hover: none) and (pointer: coarse){
+
+      nav{ display:none !important; }
+
+      .topbar .inner{
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .brand{
+        flex: 1 1 100%;
+        min-width: 0;
+      }
+
+      .brand h1{
+        font-size: 13px;
+        line-height: 1.15;
+      }
+
+      .cta{
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .cta .btn{
+        flex: 1 1 auto;
+        padding: 10px 12px;
+      }
+
+      .lang-toggle{
+        flex: 0 0 auto;
+      }
+    }
+
+      /* extra μικρά κινητά */
+      @media (max-width: 420px){
+        .cta{
+          flex-wrap: wrap;
+        }
+
+        .cta .btn{
+          width: 100%;
+        }
+
+        .lang-toggle{
+          width: 100%;
+        }
+      }
 
   </style>
 </head>
