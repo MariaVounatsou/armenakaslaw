@@ -23,7 +23,7 @@
 
       --shadow: 0 20px 60px rgba(0,0,0,.35);
       --radius: 18px;
-      --max: 1120px;
+      --max: 1280px;
     }
 
     *{box-sizing:border-box}
@@ -166,6 +166,19 @@
       flex-direction:column;
       min-height: 420px;
     }
+    /* Desktop: κείμενο αριστερά, φωτο δεξιά, ωραία ευθυγράμμιση */
+    .hero-grid{
+      align-items: start;
+    }
+
+    .portrait-card{
+      height: 100%;
+    }
+
+    .portrait{
+      min-height: 420px; /* πιο ψηλή φωτο στο desktop */
+    }
+
     .portrait{
       position:relative;
       flex: 1;
@@ -364,18 +377,8 @@
     .pill{ min-width: 0; }
     .kicker{ max-width: 100%; }
 
-    @media (max-width: 920px){
-      .maps-2{ grid-template-columns:1fr; }
-      .hero-grid{grid-template-columns:1fr; }
-      .portrait-card{min-height:unset}
-      .grid-3{grid-template-columns:1fr; }
-      .split{grid-template-columns:1fr;}
-      .contact{grid-template-columns:1fr;}
-      .hero h2{font-size:34px}
-      nav{display:none}
-    }
     /* ===== EXTRA mobile polish (ΔΕΝ χαλάει desktop) ===== */
-    @media (max-width: 920px)
+    @media (max-width: 768px)
     {
       .wrap{ padding: 0 16px; }
 
@@ -463,15 +466,20 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero-grid">
+
+          <!-- ΑΡΙΣΤΕΡΑ: κείμενα/κουμπιά/στατιστικά -->
           <div>
-            <div class="kicker"><span class="dot"></span> <span data-i18n="kicker">Νομική υποστήριξη με σοβαρότητα & διακριτικότητα</span></div>
+            <div class="kicker">
+              <span class="dot"></span>
+              <span data-i18n="kicker">Νομική υποστήριξη με σοβαρότητα & διακριτικότητα</span>
+            </div>
+
             <h2><span data-i18n="heroTitle">Παροχή Νομικών Υπηρεσιών</span></h2>
 
             <p data-i18n="heroText">
-              Το γραφείο παρέχει νομικές υπηρεσίες με υπεύθυνη προσέγγιση,
-              καθαρή ενημέρωση και προτεραιότητα στα συμφέροντα του εντολέα.
+                Το γραφείο παρέχει νομικές υπηρεσίες με υπεύθυνη προσέγγιση,
+                καθαρή ενημέρωση και προτεραιότητα στα συμφέροντα του εντολέα.
             </p>
-
 
             <div class="cta" style="margin-top:12px">
               <a class="btn primary" href="tel:+306971890526" data-i18n="callNow">
@@ -482,48 +490,55 @@
                  href="mailto:nomosarmenakas@gmail.com?subject=Επικοινωνία%20-%20Δικηγορικό%20Γραφείο&body=Ονοματεπώνυμο:%0AΤηλέφωνο:%0AΜήνυμα:%0A"
                  data-i18n="emailBtn">
                  ✉️ Email
-              </a>
+             </a>
 
-              <a class="btn" href="#services" data-i18n="seeServices">
-                Δείτε υπηρεσίες
-              </a>
+             <a class="btn" href="#services" data-i18n="seeServices">
+               Δείτε υπηρεσίες
+             </a>
+           </div>
+
+           <!-- ΣΤΑΤΙΣΤΙΚΑ / PILLS -->
+           <div class="stats">
+             <div class="pill">
+               <b data-i18n="seatsLabel">Έδρες:</b>
+               <div data-i18n="seatPlomari">Πλωμάρι (81200)</div>
+               <div data-i18n="seatMytilini">Μυτιλήνη (81100)</div>
+               <div data-i18n="seatAthens">Αθήνα (κατόπιν ραντεβού)</div>
+             </div>
+
+            <div class="pill">
+              <b data-i18n="addressLabel">Διεύθυνση:</b><br>
+              <span data-i18n="addressValue">Ελευθερίου Βενιζέλου, Πλωμάρι
+  Ικτίνου 2, 4ος Όροφος, Μυτιλήνη</span>
             </div>
 
-            <div class="stats">
-              <div class="pill">
-                <b data-i18n="seatsLabel">Έδρες:</b>
-                <div data-i18n="seatPlomari">Πλωμάρι (81200)</div>
-                <div data-i18n="seatMytilini">Μυτιλήνη (81100)</div>
-                <div data-i18n="seatAthens">Αθήνα (κατόπιν ραντεβού)</div>
-              </div>
+            <div class="pill">
+              <b data-i18n="serviceLabel">Εξυπηρέτηση:</b>
+              <span data-i18n="serviceValue">κατόπιν ραντεβού</span>
+            </div>
+           </div><!-- /stats -->
+         </div><!-- /left column -->
 
-              <div class="pill">
-                <b data-i18n="addressLabel">Διεύθυνση:</b><br>
-                <span data-i18n="addressValue">Ελευθερίου Βενιζέλου, Πλωμάρι
-              Ικτίνου 2, 4ος Όροφος, Μυτιλήνη</span>
-              </div>
-
-              <div class="pill">
-                <b data-i18n="serviceLabel">Εξυπηρέτηση:</b>
-                <span data-i18n="serviceValue">κατόπιν ραντεβού</span>
-              </div>
+        <!-- ΔΕΞΙΑ: φωτο -->
+        <aside class="portrait-card" aria-label="Φωτογραφία & βασικά στοιχεία">
+          <div class="portrait">
+            <img src="armenakas.jpg" alt="Μανώλης Αρμενάκας έξω από κτήριο" />
+            <div class="badge" data-i18n="badge">Δικηγόρος Παρ’ Αρείω Πάγω</div>
           </div>
 
-          <aside class="portrait-card" aria-label="Φωτογραφία & βασικά στοιχεία">
-            <div class="portrait">
-              <img src="armenakas.jpg" alt="Μανώλης Αρμενάκας έξω από κτήριο" />
-              <div class="badge" data-i18n="badge">Δικηγόρος Παρ’ Αρείω Πάγω</div>
-            </div>
-            <div class="portrait-meta">
-              <div class="item"><span data-i18n="landline">Σταθερό</span> <span>22520 31965</span></div>
-              <div class="item"><span data-i18n="mobile">Κινητό</span> <span>697 189 0526</span></div>
-              <div class="item"><span data-i18n="emailLabel">Email</span> <span><a href="mailto:nomosarmenakas@gmail.com">nomosarmenakas@gmail.com</a></span></div>
-            </div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+          <div class="portrait-meta">
+            <div class="item"><span data-i18n="landline">Σταθερό</span> <span>22520 31965</span></div>
+            <div class="item"><span data-i18n="mobile">Κινητό</span> <span>697 189 0526</span></div>
+            <div class="item">
+              <span data-i18n="emailLabel">Email</span>
+              <span><a href="mailto:nomosarmenakas@gmail.com">nomosarmenakas@gmail.com</a></span>
+           </div>
+          </div>
+        </aside>
+
+       </div><!-- /hero-grid -->
+     </div><!-- /wrap -->
+   </section>
 
     <section id="services">
       <div class="wrap">
