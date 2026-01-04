@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες </title>
+  <title id="pageTitle">Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας & Συνεργάτες</title>
   <meta name="description" content="Δικηγορικό γραφείο Εμμανουήλ Π. Αρμενάκας, Δικηγόρος Παρ’ Αρείω Πάγω. Επικοινωνία, υπηρεσίες, τοποθεσία." />
   <style>
     :root{
@@ -435,8 +435,11 @@
         <div class="brand">
           <div class="mark" aria-hidden="true"></div>
           <div>
-            <h1>Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες</h1>
-            <p>· Δικηγόρος Παρ’ Αρείω Πάγω</p>
+            <h1 data-i18n="brandTitle">
+              Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες
+            </h1>
+            <p data-i18n="brandSubtitle">· Δικηγόρος Παρ’ Αρείω Πάγω</p>
+
           </div>
         </div>
 
@@ -765,6 +768,9 @@
         location: "Τοποθεσία",
         contact: "Επικοινωνία",
         book: "Κλείστε ραντεβού",
+        //BRAND
+        brandTitle: "Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας\nκαι συνεργάτες",
+        brandSubtitle: "· Δικηγόρος Παρ’ Αρείω Πάγω",
 
         // HERO
         kicker: "Νομική υποστήριξη με σοβαρότητα & διακριτικότητα",
@@ -857,6 +863,10 @@
         location: "Location",
         contact: "Contact",
         book: "Book an appointment",
+        
+        //BRAND
+        brandTitle: "Law Office of Emmanouil P. Armenakas\nand Associates",
+        brandSubtitle: "· Attorney at the Supreme Court (Areios Pagos)",
 
         // HERO
         kicker: "Legal support with seriousness & discretion",
@@ -968,6 +978,11 @@
       if (btn){
         btn.textContent = (lang === "el") ? "🇬🇷" : "🇬🇧";
         btn.setAttribute("aria-label", (lang === "el") ? "Switch to English" : "Αλλαγή σε Ελληνικά");
+      }
+      // αλλαγή τίτλου σελίδας
+      const titleEl = document.getElementById("pageTitle");
+      if (titleEl && I18N[lang].pageTitle) {
+        titleEl.textContent = I18N[lang].pageTitle;
       }
     }
 
