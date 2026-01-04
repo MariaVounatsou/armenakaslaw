@@ -1,0 +1,993 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες </title>
+  <meta name="description" content="Δικηγορικό γραφείο Εμμανουήλ Π. Αρμενάκας, Δικηγόρος Παρ’ Αρείω Πάγω. Επικοινωνία, υπηρεσίες, τοποθεσία." />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: #0f1a2f;
+      --ink: #0e1320;
+      --text: #e9eef7;
+      --muted: rgba(233,238,247,.72);
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.10);
+
+      /* απόχρωση μπλε */
+      --accent: #2284c5;
+
+      /* links/τονισμούς στο ίδιο μπλε για ομοιομορφία */
+      --accent2: #2284c5;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background:
+        /* απόχρωση μπλε */
+        radial-gradient(1200px 700px at 18% 0%, rgba(34,132,197,.14), transparent 55%),
+        radial-gradient(900px 600px at 90% 18%, rgba(34,132,197,.12), transparent 55%),
+        linear-gradient(180deg, #070b14 0%, var(--bg) 40%, #070b14 100%);
+      line-height:1.55;
+    }
+
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:220px;
+    }
+    .mark{
+      width:40px; height:40px; border-radius:12px;
+      /* απόχρωση μπλε */
+      background: linear-gradient(135deg, rgba(34,132,197,.95), rgba(34,132,197,.35));
+      box-shadow: 0 10px 25px rgba(34,132,197,.18);
+      position:relative;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:9px;
+      border-radius:10px;
+      border:2px solid rgba(7,11,20,.75);
+    }
+    .brand h1{
+      font-size:14px; margin:0; letter-spacing:.4px; font-weight:750;
+    }
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+    nav{display:flex; align-items:center; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      color:var(--text);
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{background: rgba(255,255,255,.06); text-decoration:none}
+    .cta{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:650;
+      font-size:13px;
+      box-shadow: none;
+      cursor:pointer;
+    }
+    .btn:hover{background: rgba(255,255,255,.08)}
+    .btn.primary{
+      /* απόχρωση μπλε */
+      border-color: rgba(34,132,197,.55);
+      background: linear-gradient(135deg, rgba(34,132,197,.95), rgba(34,132,197,.25));
+      color:#0b1220;
+    }
+    .btn.primary:hover{filter:brightness(1.02)}
+    .hero{
+      padding:54px 0 28px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size:12px;
+    }
+    .dot{
+      width:9px; height:9px; border-radius:50%;
+      background: var(--accent);
+      /* απόχρωση μπλε */
+      box-shadow: 0 0 0 4px rgba(34,132,197,.14);
+    }
+    .hero h2{
+      margin:14px 0 10px;
+      font-size:40px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    /* απόχρωση μπλε */
+    .hero h2 span{color: rgba(34,132,197,.98)}
+    .hero p{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size:15px;
+      max-width:58ch;
+    }
+    .stats{
+      display:flex; gap:12px; flex-wrap:wrap;
+      margin-top:16px;
+    }
+    .pill{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      font-size:13px;
+      color: var(--text);
+    }
+    .pill b{color: rgba(233,238,247,.95)}
+    .portrait-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 420px;
+    }
+    .portrait{
+      position:relative;
+      flex: 1;
+      min-height:320px;
+      background: #0a0f1d;
+    }
+    .portrait img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(.95);
+    }
+    .badge{
+      position:absolute;
+      left:16px; bottom:16px;
+      padding:10px 12px;
+      border-radius:14px;
+      background: rgba(7,11,20,.72);
+      border:1px solid rgba(255,255,255,.14);
+      color: var(--text);
+      font-weight:650;
+      font-size:13px;
+      backdrop-filter: blur(8px);
+    }
+    .portrait-meta{
+      padding:14px 16px;
+      border-top:1px solid var(--line);
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+      background: rgba(7,11,20,.35);
+    }
+    .portrait-meta .item{
+      display:flex; flex-direction:column; gap:2px;
+      font-size:12px; color: var(--muted);
+    }
+    .portrait-meta .item span{color: var(--text); font-weight:700; font-size:13px}
+    /* Κάνουμε τα items της portrait-meta clickable όταν είναι <a> */
+    .portrait-meta a.item{
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .portrait-meta a.item:hover{
+      text-decoration: underline;
+    }
+
+
+    section{padding:26px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:18px; flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+    .section-title h3{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.2px;
+    }
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      max-width:70ch;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      padding:16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+    .card h4{
+      margin:0 0 6px;
+      font-size:15px;
+      letter-spacing:-.1px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:start;
+    }
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .kv{
+      display:flex; flex-direction:column; gap:6px;
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .kv strong{color:var(--text)}
+    .map{
+      border-radius: var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      min-height:320px;
+      background: rgba(255,255,255,.03);
+    }
+      /* ===== ΧΑΡΤΕΣ ΠΛΩΜΑΡΙ - ΜΥΤΙΛΗΝΗ ===== */
+    .maps-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+
+    .map iframe{
+      width:100%;
+      height:320px;
+      border:0;
+      display:block;
+    }
+
+    .map-open{
+      display:block;
+      padding:10px 12px;
+      text-align:center;
+      font-size:13px;
+      font-weight:700;
+      color: var(--accent2);
+      background: rgba(7,11,20,.35);
+      border-top:1px solid var(--line);
+    }
+    .map-open:hover{
+      text-decoration:underline;
+    }
+
+    iframe{width:100%; border:0}
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+    /* FORCE mailto click */
+    a[href^="mailto:"]{
+      position: relative;
+      z-index: 9999;
+      pointer-events: auto !important;
+    }
+    .social-links{
+      margin-top:12px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+
+    .social-links img{
+      width:28px;
+      height:28px;
+      opacity:0.9;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .social-links img:hover{
+      transform: scale(1.15);
+      opacity:1;
+    }
+
+    .lang-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:38px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      user-select:none;
+      font-size:18px;
+      line-height:1;
+    }
+    .lang-toggle:hover{background: rgba(255,255,255,.08)}
+    
+    .topbar{ z-index: 9999; }
+    .lang-toggle{
+      pointer-events: auto;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* πιο “μαλακό” wrap σε μικρές οθόνες */
+    .hero h2{ word-break: break-word; }
+    .pill{ min-width: 0; }
+    .kicker{ max-width: 100%; }
+
+    @media (max-width: 920px){
+      .maps-2{ grid-template-columns:1fr; }
+      .hero-grid{grid-template-columns:1fr; }
+      .portrait-card{min-height:unset}
+      .grid-3{grid-template-columns:1fr; }
+      .split{grid-template-columns:1fr;}
+      .contact{grid-template-columns:1fr;}
+      .hero h2{font-size:34px}
+      nav{display:none}
+    }
+    /* ===== EXTRA mobile polish (ΔΕΝ χαλάει desktop) ===== */
+    @media (max-width: 920px)
+    {
+      .wrap{ padding: 0 16px; }
+
+      .hero{ padding: 34px 0 18px; }
+
+      .hero-grid{ grid-template-columns: 1fr; gap: 16px; }
+      .hero h2{ font-size: 32px; line-height: 1.12; }
+
+      .cta{ gap: 10px; }
+      .cta .btn
+      {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 14px;
+      }
+
+      .stats{ gap: 10px; }
+      .pill{ width: 100%; }
+
+      .portrait{ min-height: 260px; }
+      .portrait-card{ min-height: unset; }
+
+      .portrait-meta{
+        gap: 10px;
+        justify-content: flex-start;
+      }
+      .portrait-meta .item{
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .grid-3,
+      .split,
+      .contact,
+      .maps-2{
+        grid-template-columns: 1fr;
+      }
+
+      .map iframe{ height: 280px; }
+
+      footer .wrap > div{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1>Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες</h1>
+            <p>· Δικηγόρος Παρ’ Αρείω Πάγω</p>
+          </div>
+        </div>
+
+        <nav aria-label="Κύρια πλοήγηση">
+          <a href="#services" data-i18n="services">Υπηρεσίες</a>
+          <a href="#about" data-i18n="about">Σχετικά</a>
+          <a href="#location" data-i18n="location">Τοποθεσία</a>
+          <a href="#contact" data-i18n="contact">Επικοινωνία</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="tel:+302252031965" title="Κλήση στο σταθερό">📞 22520 31965</a>
+          <a class="btn primary" href="#contact" data-i18n="book">Κλείστε ραντεβού</a>
+          <button class="lang-toggle" id="langBtn" type="button" aria-label="Αλλαγή γλώσσας">🇬🇷</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker"><span class="dot"></span> <span data-i18n="kicker">Νομική υποστήριξη με σοβαρότητα & διακριτικότητα</span></div>
+            <h2><span data-i18n="heroTitle">Παροχή Νομικών Υπηρεσιών</span></h2>
+
+            <p data-i18n="heroText">
+              Το γραφείο παρέχει νομικές υπηρεσίες με υπεύθυνη προσέγγιση,
+              καθαρή ενημέρωση και προτεραιότητα στα συμφέροντα του εντολέα.
+            </p>
+
+
+            <div class="cta" style="margin-top:12px">
+              <a class="btn primary" href="tel:+306971890526" data-i18n="callNow">
+                📱 Άμεση κλήση: 697 189 0526
+              </a>
+
+              <a class="btn email-btn"
+                 href="mailto:nomosarmenakas@gmail.com?subject=Επικοινωνία%20-%20Δικηγορικό%20Γραφείο&body=Ονοματεπώνυμο:%0AΤηλέφωνο:%0AΜήνυμα:%0A"
+                 data-i18n="emailBtn">
+                 ✉️ Email
+              </a>
+
+              <a class="btn" href="#services" data-i18n="seeServices">
+                Δείτε υπηρεσίες
+              </a>
+            </div>
+
+            <div class="stats">
+              <div class="pill">
+                <b data-i18n="seatsLabel">Έδρες:</b>
+                <div data-i18n="seatPlomari">Πλωμάρι (81200)</div>
+                <div data-i18n="seatMytilini">Μυτιλήνη (81100)</div>
+                <div data-i18n="seatAthens">Αθήνα (κατόπιν ραντεβού)</div>
+              </div>
+
+              <div class="pill">
+                <b data-i18n="addressLabel">Διεύθυνση:</b><br>
+                <span data-i18n="addressValue">Ελευθερίου Βενιζέλου, Πλωμάρι
+              Ικτίνου 2, 4ος Όροφος, Μυτιλήνη</span>
+              </div>
+
+              <div class="pill">
+                <b data-i18n="serviceLabel">Εξυπηρέτηση:</b>
+                <span data-i18n="serviceValue">κατόπιν ραντεβού</span>
+              </div>
+          </div>
+
+          <aside class="portrait-card" aria-label="Φωτογραφία & βασικά στοιχεία">
+            <div class="portrait">
+              <img src="armenakas.jpg" alt="Μανώλης Αρμενάκας έξω από κτήριο" />
+              <div class="badge" data-i18n="badge">Δικηγόρος Παρ’ Αρείω Πάγω</div>
+            </div>
+            <div class="portrait-meta">
+              <div class="item"><span data-i18n="landline">Σταθερό</span> <span>22520 31965</span></div>
+              <div class="item"><span data-i18n="mobile">Κινητό</span> <span>697 189 0526</span></div>
+              <div class="item"><span data-i18n="emailLabel">Email</span> <span><a href="mailto:nomosarmenakas@gmail.com">nomosarmenakas@gmail.com</a></span></div>
+            </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3 data-i18n="servicesTitle">Υπηρεσίες</h3>
+            <p data-i18n="servicesIntro">Ενδεικτικοί τομείς υποστήριξης.</p>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h4 data-i18n="s1t">Αστικό Δίκαιο</h4>
+            <p data-i18n="s1d">Συμβάσεις, απαιτήσεις, μισθώσεις, διαφορές ιδιωτών, αποζημιώσεις.</p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="s2t">Ποινικό Δίκαιο</h4>
+            <p data-i18n="s2d">
+              Υπεράσπιση & υποστήριξη σε κάθε στάδιο, μεθοδική προετοιμασία φακέλου.
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="s3t">Οικογενειακό Δίκαιο</h4>
+            <p data-i18n="s3d">
+              Διαζύγια, επιμέλεια, διατροφή, ρυθμίσεις με έμφαση στη διακριτικότητα.
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="s4t">Κληρονομικά</h4>
+            <p data-i18n="s4d">
+              Αποδοχές κληρονομιάς, διαθήκες, κληρονομικές διαφορές, διαδικασίες.
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="s5t">Διοικητικές Υποθέσεις</h4>
+            <p data-i18n="s5d">
+              Προσφυγές και ενστάσεις, υποθέσεις με δημόσιους φορείς και υπηρεσίες.
+            </p>
+          </div>
+          <div class="card">
+            <h4 data-i18n="s6t">Συμβουλευτική & Διαπραγμάτευση</h4>
+            <p data-i18n="s6d">
+              Πρόληψη διαφορών, έλεγχος εγγράφων, στρατηγική πριν τη δικαστική οδό.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="split">
+          <div class="card">
+            <h4 data-i18n="aboutTitle">Σχετικά με το γραφείο</h4>
+            <p data-i18n="aboutText">
+              Δικηγορικό γραφείο στο Πλωμάρι Λέσβου με στόχο την άμεση και
+              τεκμηριωμένη υποστήριξη, από την πρώτη αξιολόγηση έως την ολοκλήρωση της υπόθεσης.
+            </p>
+            <div class="kv">
+              <div><strong>Δικηγόρος:</strong> Μανώλης Αρμενάκας</div>
+              <div><strong>Ιδιότητα:</strong> Δικηγόρος Παρ’ Αρείω Πάγω</div>
+              <div><strong>Περιοχές:</strong> 📍 Πλωμάρι 📍Μυτιλήνη 📍Αθήνα </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4 data-i18n="principlesTitle">Αρχές συνεργασίας</h4>
+            <p data-i18n="principlesText">
+              Σαφής ενημέρωση, εχεμύθεια, ρεαλιστική εκτίμηση και συνέπεια σε προθεσμίες.
+              Προτεραιότητα είναι η καλύτερη δυνατή λύση με σεβασμό στον άνθρωπο.
+            </p>
+            <div class="stats" style="margin-top:12px">
+              <div class="pill"><b data-i18n="p1">Εχεμύθεια</b></div>
+              <div class="pill"><b data-i18n="p2">Τεκμηρίωση</b></div>
+              <div class="pill"><b data-i18n="p3">Συνέπεια</b></div>
+              <div class="pill"><b data-i18n="p4">Επαγγελματισμός</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="location">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3 data-i18n="locationTitle">Τοποθεσία</h3>
+          </div>
+        </div>
+
+        <div class="maps-2">
+
+          <!-- ΠΛΩΜΑΡΙ -->
+          <div class="map">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3101.7569979027053!2d26.36668257536028!3d38.97521637170758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14baf7ec7684e981%3A0xc5e95eab894cc3d8!2zzpHPgc68zrXOvc6szrrOsc-CIM6gLiDOlc68zrzOsc69zr_Phc6uzrsgKCBBcm1lbmFrYXMgUC4gRW1tYW5vdWVsICk!5e0!3m2!1sen!2sgr!4v1767455879790!5m2!1sen!2sgr">
+            </iframe>
+
+            <a class="map-open"
+               href="https://maps.app.goo.gl/kiHb2FVcvUMz4GYo9"
+               target="_blank"
+               data-i18n="openMapPlomari">
+              📍 Άνοιγμα Χάρτη Πλωμαρίου
+            </a>
+          </div>
+
+          <!-- ΜΥΤΙΛΗΝΗ -->
+          <div class="map">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3096.1286825065863!2d26.551590975367414!3d39.10354037168077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ba670c6e7b1fa1%3A0xa01dc301d582f149!2sIktinou%202%2C%20Mitilini%20811%2000!5e0!3m2!1sen!2sgr!4v1767455843673!5m2!1sen!2sgr">
+            </iframe>
+
+            <a class="map-open"
+               href="https://maps.app.goo.gl/x1zf3gL5mPjvAUpe8"
+               target="_blank"
+               data-i18n="openMapMytilini">
+              📍 Άνοιγμα Χάρτη Μυτιλήνης
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-title">
+          <div>
+            <h3 data-i18n="contactTitle2">Επικοινωνία</h3>
+            <p data-i18n="contactIntro">Για ραντεβού και αρχική ενημέρωση, μπορείτε να καλέσετε ή να στείλετε email.</p>
+          </div>
+        </div>
+
+        <div class="contact">
+          <div class="card">
+            <h4 data-i18n="detailsTitle">Στοιχεία</h4>
+            <div class="kv">
+              <div><strong data-i18n="landline2">Σταθερό:</strong> <a href="tel:+302252031965">22520 31965</a></div>
+              <div><strong data-i18n="mobile2">Κινητό:</strong> <a href="tel:+306971890526">697 189 0526</a></div>
+              <div><strong data-i18n="email2">Email:</strong> <a href="mailto:nomosarmenakas@gmail.com">nomosarmenakas@gmail.com</a></div>
+              <div><strong data-i18n="baseLabel">Έδρα:</strong> <br> Πλωμάρι, 81200 (Λέσβος) <br> Ικτίνου 2, 4ος Όροφος, Μυτιλήνη <br> Αθήνα</div>
+            </div>
+
+
+            <div class="cta" style="margin-top:12px">
+              <a class="btn primary" href="tel:+302252031965">📞 Κλήση</a>
+              <a class="btn" href="mailto:nomosarmenakas@gmail.com?subject=Ραντεβού%20-%20Δικηγορικό%20Γραφείο&body=Ονοματεπώνυμο:%0AΤηλέφωνο:%0AΣύντομη%20περιγραφή%20υπόθεσης:%0AΠροτεινόμενες%20ημέρες/ώρες:%0A">
+                ✉️ Αίτημα ραντεβού
+              </a>
+            </div>
+
+            <p style="margin-top:12px; color:var(--muted); font-size:12px" data-i18n="disclaimer">
+              *Η επικοινωνία μέσω email δεν αντικαθιστά νομική συμβουλή· για επείγοντα θέματα προτιμήστε κλήση.
+            </p>
+            <div class="social-links">
+              <a href="https://www.instagram.com/armenakas_law_firm?igsh=dXNvd2ZiNzBtNnN5&utm_source=qr"
+                 target="_blank"
+                 aria-label="Instagram">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+              </a>
+
+              <a href="https://www.facebook.com/manolis.armenakas"
+                 target="_blank"
+                 aria-label="Facebook">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook">
+              </a>
+            </div>
+
+          </div>
+
+          <div class="card">
+            <h4 data-i18n="formTitle">Φόρμα επικοινωνίας</h4>
+            <p data-i18n="formIntro">Συμπληρώστε τα στοιχεία σας και θα λάβετε απάντηση το συντομότερο δυνατό.</p>
+
+            <form action="send_smtp.php" method="POST" style="margin-top:12px; display:grid; gap:10px">
+              <label>
+                  <span style="font-size:12px; color:var(--muted)" data-i18n="nameLbl">Ονοματεπώνυμο
+                  </span>
+                 <input required name="name"
+                  style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text)" />
+              </label>
+
+              <label>
+                <span style="font-size:12px; color:var(--muted)" data-i18n="phoneLbl">Τηλέφωνο
+                </span>
+               <input required name="phone"
+                  style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text)" />
+              </label>
+
+              <label>
+                <span style="font-size:12px; color:var(--muted)" data-i18n="emailLbl">Email
+                </span>
+                <input required type="email" name="email"
+                  style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text)" />
+              </label>
+
+              <input type="text" name="website" autocomplete="off" tabindex="-1"
+                     style="position:absolute; left:-9999px; opacity:0">
+
+              <label>
+                <span style="font-size:12px; color:var(--muted)" data-i18n="msgLbl">Μήνυμα (προαιρετικό)</span>
+                <textarea name="message" rows="5"
+                  style="width:100%; padding:12px 12px; border-radius:14px; border:1px solid var(--line); background: rgba(255,255,255,.04); color:var(--text); resize:vertical"></textarea>
+              </label>
+
+              <button class="btn primary" type="submit" data-i18n="sendBtn">Αποστολή
+              </button>
+
+              <p style="margin:0; color:var(--muted); font-size:12px" data-i18n="consent">
+                Με την αποστολή, συμφωνείτε ότι τα στοιχεία σας θα χρησιμοποιηθούν αποκλειστικά για επικοινωνία σχετικά με το αίτημά σας.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+        <div>© <span id="year"></span> Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας </div>
+        <div style="opacity:.9" data-i18n="footerRight">Σχεδίαση: Μαρία Βουνάτσου</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+    const I18N = {
+      el: {
+        // NAV
+        services: "Υπηρεσίες",
+        about: "Σχετικά",
+        location: "Τοποθεσία",
+        contact: "Επικοινωνία",
+        book: "Κλείστε ραντεβού",
+
+        // HERO
+        kicker: "Νομική υποστήριξη με σοβαρότητα & διακριτικότητα",
+        heroTitle: "Παροχή Νομικών Υπηρεσιών",
+        heroText: "Το γραφείο παρέχει νομικές υπηρεσίες με υπεύθυνη προσέγγιση, καθαρή ενημέρωση και προτεραιότητα στα συμφέροντα του εντολέα.",
+        callNow: "📱 Άμεση κλήση: 697 189 0526",
+        emailBtn: "✉️ Email",
+        seeServices: "Δείτε υπηρεσίες",
+
+        // STATS / PILLS
+        seatsLabel: "Έδρες:",
+        seatPlomari: "Πλωμάρι (81200)",
+        seatMytilini: "Μυτιλήνη (81100)",
+        seatAthens: "Αθήνα (κατόπιν ραντεβού)",
+        addressLabel: "Διεύθυνση:",
+        addressValue: "Ελευθερίου Βενιζέλου, Πλωμάρι\nΙκτίνου 2, 4ος Όροφος, Μυτιλήνη",
+        serviceLabel: "Εξυπηρέτηση:",
+        serviceValue: "κατόπιν ραντεβού",
+
+        // PORTRAIT BADGE + META
+        badge: "Δικηγόρος Παρ’ Αρείω Πάγω",
+        landline: "Σταθερό",
+        mobile: "Κινητό",
+        emailLabel: "Email",
+
+        // SERVICES SECTION
+        servicesTitle: "Υπηρεσίες",
+        servicesIntro: "Ενδεικτικοί τομείς υποστήριξης.",
+        s1t: "Αστικό Δίκαιο",
+        s1d: "Συμβάσεις, απαιτήσεις, μισθώσεις, διαφορές ιδιωτών, αποζημιώσεις.",
+        s2t: "Ποινικό Δίκαιο",
+        s2d: "Υπεράσπιση & υποστήριξη σε κάθε στάδιο, μεθοδική προετοιμασία φακέλου.",
+        s3t: "Οικογενειακό Δίκαιο",
+        s3d: "Διαζύγια, επιμέλεια, διατροφή, ρυθμίσεις με έμφαση στη διακριτικότητα.",
+        s4t: "Κληρονομικά",
+        s4d: "Αποδοχές κληρονομιάς, διαθήκες, κληρονομικές διαφορές, διαδικασίες.",
+        s5t: "Διοικητικές Υποθέσεις",
+        s5d: "Προσφυγές/ενστάσεις, υποθέσεις με φορείς και υπηρεσίες.",
+        s6t: "Συμβουλευτική & Διαπραγμάτευση",
+        s6d: "Πρόληψη διαφορών, έλεγχος εγγράφων, στρατηγική πριν την δικαστική οδό.",
+
+        // ABOUT SECTION
+        aboutTitle: "Σχετικά με το γραφείο",
+        aboutText: "Δικηγορικό γραφείο στο Πλωμάρι Λέσβου με στόχο την άμεση και τεκμηριωμένη υποστήριξη, από την πρώτη αξιολόγηση έως την ολοκλήρωση της υπόθεσης.",
+        lawyerLabel: "Δικηγόρος:",
+        roleLabel: "Ιδιότητα:",
+        areasLabel: "Περιοχές:",
+        principlesTitle: "Αρχές συνεργασίας",
+        principlesText: "Σαφής ενημέρωση, εχεμύθεια, ρεαλιστική εκτίμηση και συνέπεια σε προθεσμίες. Προτεραιότητα είναι η καλύτερη δυνατή λύση με σεβασμό στον άνθρωπο.",
+        p1: "Εχεμύθεια",
+        p2: "Τεκμηρίωση",
+        p3: "Συνέπεια",
+        p4: "Επαγγελματισμός",
+
+        // LOCATION
+        locationTitle: "Τοποθεσία",
+        openMapPlomari: "📍 Άνοιγμα Χάρτη Πλωμαρίου",
+        openMapMytilini: "📍 Άνοιγμα Χάρτη Μυτιλήνης",
+
+        // CONTACT
+        contactTitle2: "Επικοινωνία",
+        contactIntro: "Για ραντεβού και αρχική ενημέρωση, μπορείτε να καλέσετε ή να στείλετε email.",
+        detailsTitle: "Στοιχεία",
+        landline2: "Σταθερό:",
+        mobile2: "Κινητό:",
+        email2: "Email:",
+        baseLabel: "Έδρα:",
+        callBtn: "📞 Κλήση",
+        apptEmailBtn: "✉️ Αίτημα ραντεβού",
+        disclaimer: "*Η επικοινωνία μέσω email δεν αντικαθιστά νομική συμβουλή· για επείγοντα θέματα προτιμήστε κλήση.",
+
+        // FORM
+        formTitle: "Φόρμα επικοινωνίας",
+        formIntro: "Συμπληρώστε τα στοιχεία σας και θα λάβετε απάντηση το συντομότερο δυνατό.",
+        nameLbl: "Ονοματεπώνυμο",
+        phoneLbl: "Τηλέφωνο",
+        emailLbl: "Email",
+        msgLbl: "Μήνυμα (προαιρετικό)",
+        sendBtn: "Αποστολή",
+        consent: "Με την αποστολή, συμφωνείτε ότι τα στοιχεία σας θα χρησιμοποιηθούν αποκλειστικά για επικοινωνία σχετικά με το αίτημά σας.",
+
+        // FOOTER
+        footerRight: "Σχεδίαση: Μαρία Βουνάτσου"
+      },
+
+      en: {
+        // NAV
+        services: "Services",
+        about: "About",
+        location: "Location",
+        contact: "Contact",
+        book: "Book an appointment",
+
+        // HERO
+        kicker: "Legal support with seriousness & discretion",
+        heroTitle: "Legal Services",
+        heroText: "The office provides legal services with a responsible approach, clear communication, and priority to the client’s interests.",
+        callNow: "📱 Call now: +30 697 189 0526",
+        emailBtn: "✉️ Email",
+        seeServices: "View services",
+
+        // STATS / PILLS
+        seatsLabel: "Offices:",
+        seatPlomari: "Plomari (81200)",
+        seatMytilini: "Mytilene (81100)",
+        seatAthens: "Athens (by appointment)",
+        addressLabel: "Address:",
+        addressValue: "Eleftheriou Venizelou, Plomari\nIktinou 2, 4th Floor, Mytilene",
+        serviceLabel: "Availability:",
+        serviceValue: "by appointment",
+
+        // PORTRAIT
+        badge: "Attorney at the Supreme Court (Areios Pagos)",
+        landline: "Landline",
+        mobile: "Mobile",
+        emailLabel: "Email",
+
+        // SERVICES
+        servicesTitle: "Services",
+        servicesIntro: "Indicative areas of support.",
+        s1t: "Civil Law",
+        s1d: "Contracts, claims, leases, private disputes, compensation.",
+        s2t: "Criminal Law",
+        s2d: "Defense & support at every stage, thorough case preparation.",
+        s3t: "Family Law",
+        s3d: "Divorce, custody, alimony, arrangements with discretion.",
+        s4t: "Inheritance Law",
+        s4d: "Inheritance acceptance, wills, inheritance disputes, procedures.",
+        s5t: "Administrative Matters",
+        s5d: "Appeals/objections, cases with public authorities and services.",
+        s6t: "Consulting & Negotiation",
+        s6d: "Dispute prevention, document review, strategy before litigation.",
+
+        // ABOUT
+        aboutTitle: "About the office",
+        aboutText: "A law office in Plomari, Lesvos, focused on prompt and well-documented support—from the first assessment to the completion of the case.",
+        lawyerLabel: "Lawyer:",
+        roleLabel: "Title:",
+        areasLabel: "Areas:",
+        principlesTitle: "Working principles",
+        principlesText: "Clear communication, confidentiality, realistic assessment, and consistency with deadlines. The priority is the best possible solution with respect for the person.",
+        p1: "Confidentiality",
+        p2: "Documentation",
+        p3: "Consistency",
+        p4: "Professionalism",
+
+        // LOCATION
+        locationTitle: "Location",
+        openMapPlomari: "📍 Open Plomari Map",
+        openMapMytilini: "📍 Open Mytilene Map",
+
+        // CONTACT
+        contactTitle2: "Contact",
+        contactIntro: "For appointments and initial information, you may call or send an email.",
+        detailsTitle: "Details",
+        landline2: "Landline:",
+        mobile2: "Mobile:",
+        email2: "Email:",
+        baseLabel: "Office:",
+        callBtn: "📞 Call",
+        apptEmailBtn: "✉️ Appointment request",
+        disclaimer: "*Email communication does not constitute legal advice; for urgent matters, please prefer calling.",
+
+        // FORM
+        formTitle: "Contact form",
+        formIntro: "Fill in your details and you will receive a reply as soon as possible.",
+        nameLbl: "Full name",
+        phoneLbl: "Phone",
+        emailLbl: "Email",
+        msgLbl: "Message (optional)",
+        sendBtn: "Send",
+        consent: "By sending, you agree that your details will be used exclusively to contact you regarding your request.",
+
+        // FOOTER
+        footerRight: "Design: Maria Vounatsou"
+      }
+    };
+
+    let currentLang = "el";
+
+    function setMultilineText(el, value){
+      if (value.includes("\n")) {
+        el.innerHTML = value.split("\n").map(line => line.trim()).join("<br>");
+      } else {
+        el.textContent = value;
+      }
+    }
+
+    function applyLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const val = I18N[lang][key];
+        if (typeof val === "string") setMultilineText(el, val);
+      });
+
+      const btn = document.getElementById("langBtn");
+      if (btn){
+        btn.textContent = (lang === "el") ? "🇬🇷" : "🇬🇧";
+        btn.setAttribute("aria-label", (lang === "el") ? "Switch to English" : "Αλλαγή σε Ελληνικά");
+      }
+    }
+
+    // ασφαλές: δένουμε event όταν έχει φορτώσει το DOM (ιδανικό για κινητά)
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("langBtn");
+      if (!btn) return;
+
+      const toggleLang = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        applyLang(currentLang === "el" ? "en" : "el");
+      };
+
+      btn.addEventListener("click", toggleLang);
+      btn.addEventListener("touchend", toggleLang, { passive: false });
+
+      applyLang("el");
+    });
+  </script>
+  </body>
+  </html>
+
