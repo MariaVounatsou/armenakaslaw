@@ -477,6 +477,45 @@
           width: 100%;
         }
       }
+      /* ================================
+         FIX: overlay που κλέβει clicks (desktop)
+         ================================ */
+
+      .hero-grid{
+        position: relative;
+        isolation: isolate;
+      }
+
+      /* αριστερό column (κουμπιά/κείμενα) */
+      .hero-grid > div{
+        position: relative;
+        z-index: 5;
+      }
+
+      /* δεξί column (φωτο) */
+      .portrait-card{
+        position: relative;
+        z-index: 1;
+      }
+
+      /* η φωτο ΔΕΝ κλέβει clicks */
+      .portrait,
+      .portrait *{
+        pointer-events: none;
+      }
+
+      /* αλλά τα meta κάτω από τη φωτο πατιούνται */
+      .portrait-meta,
+      .portrait-meta *{
+        pointer-events: auto;
+      }
+
+      /* έξτρα ασφάλεια για email */
+      .hero .email-btn{
+        position: relative;
+        z-index: 10;
+        pointer-events: auto;
+      }
 
   </style>
 </head>
@@ -648,10 +687,22 @@
               τεκμηριωμένη υποστήριξη, από την πρώτη αξιολόγηση έως την ολοκλήρωση της υπόθεσης.
             </p>
             <div class="kv">
-              <div><strong>Δικηγόρος:</strong> Μανώλης Αρμενάκας</div>
-              <div><strong>Ιδιότητα:</strong> Δικηγόρος Παρ’ Αρείω Πάγω</div>
-              <div><strong>Περιοχές:</strong> 📍 Πλωμάρι 📍Μυτιλήνη 📍Αθήνα </div>
+              <div>
+                <strong data-i18n="lawyerLabel">Δικηγόρος:</strong>
+                <span data-i18n="lawyerName">Μανώλης Αρμενάκας</span>
+              </div>
+
+              <div>
+                <strong data-i18n="roleLabel">Ιδιότητα:</strong>
+                <span data-i18n="lawyerRole">Δικηγόρος Παρ’ Αρείω Πάγω</span>
+              </div>
+
+              <div>
+                <strong data-i18n="areasLabel">Περιοχές:</strong>
+                <span data-i18n="lawyerAreas">📍 Πλωμάρι 📍 Μυτιλήνη 📍 Αθήνα</span>
+              </div>
             </div>
+
           </div>
 
           <div class="card">
@@ -734,33 +785,39 @@
               <div><strong data-i18n="landline2">Σταθερό:</strong> <a href="tel:+302252031965">22520 31965</a></div>
               <div><strong data-i18n="mobile2">Κινητό:</strong> <a href="tel:+306971890526">697 189 0526</a></div>
               <div><strong data-i18n="email2">Email:</strong> <a href="mailto:nomosarmenakas@gmail.com">nomosarmenakas@gmail.com</a></div>
-              <div><strong data-i18n="baseLabel">Έδρα:</strong> <br> Πλωμάρι, 81200 (Λέσβος) <br> Ικτίνου 2, 4ος Όροφος, Μυτιλήνη <br> Αθήνα</div>
+              <div>
+                <strong data-i18n="baseLabel">Έδρα:</strong><br>
+                <span data-i18n="officeLocations">
+                  Πλωμάρι, 81200 (Λέσβος)<br>
+                  Ικτίνου 2, 4ος Όροφος, Μυτιλήνη<br>
+                  Αθήνα
+                </span>
+              </div>
             </div>
 
 
             <div class="cta" style="margin-top:12px">
-              <a class="btn primary" href="tel:+302252031965">📞 Κλήση</a>
-              <a class="btn" href="mailto:nomosarmenakas@gmail.com?subject=Ραντεβού%20-%20Δικηγορικό%20Γραφείο&body=Ονοματεπώνυμο:%0AΤηλέφωνο:%0AΣύντομη%20περιγραφή%20υπόθεσης:%0AΠροτεινόμενες%20ημέρες/ώρες:%0A">
-                ✉️ Αίτημα ραντεβού
+              <a class="btn primary" href="tel:+302252031965" data-i18n="callBtn">
+                📞 Κλήση
               </a>
+              <div class="social-links">
+                <a href="https://www.instagram.com/armenakas_law_firm?igsh=dXNvd2ZiNzBtNnN5&utm_source=qr"
+                   target="_blank"
+                   aria-label="Instagram">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+                </a>
+
+                <a href="https://www.facebook.com/manolis.armenakas"
+                   target="_blank"
+                   aria-label="Facebook">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook">
+                </a>
+              </div>
             </div>
 
             <p style="margin-top:12px; color:var(--muted); font-size:12px" data-i18n="disclaimer">
               *Η επικοινωνία μέσω email δεν αντικαθιστά νομική συμβουλή· για επείγοντα θέματα προτιμήστε κλήση.
             </p>
-            <div class="social-links">
-              <a href="https://www.instagram.com/armenakas_law_firm?igsh=dXNvd2ZiNzBtNnN5&utm_source=qr"
-                 target="_blank"
-                 aria-label="Instagram">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
-              </a>
-
-              <a href="https://www.facebook.com/manolis.armenakas"
-                 target="_blank"
-                 aria-label="Facebook">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook">
-              </a>
-            </div>
 
           </div>
 
@@ -815,7 +872,7 @@
   <footer>
     <div class="wrap">
       <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
-        <div>© <span id="year"></span> Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας </div>
+          <div>© <span id="year"></span> <span data-i18n="footerOffice">Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας</span></div>
         <div style="opacity:.9" data-i18n="footerRight">Σχεδίαση: Μαρία Βουνάτσου</div>
       </div>
     </div>
@@ -889,11 +946,17 @@
         p2: "Τεκμηρίωση",
         p3: "Συνέπεια",
         p4: "Επαγγελματισμός",
+        lawyerName: "Μανώλης Αρμενάκας",
+        lawyerRole: "Δικηγόρος Παρ’ Αρείω Πάγω",
+        lawyerAreas: "📍 Πλωμάρι 📍 Μυτιλήνη 📍 Αθήνα",
+
 
         // LOCATION
         locationTitle: "Τοποθεσία",
         openMapPlomari: "📍 Άνοιγμα Χάρτη Πλωμαρίου",
         openMapMytilini: "📍 Άνοιγμα Χάρτη Μυτιλήνης",
+        officeLocations: "Πλωμάρι, 81200 (Λέσβος)\nΙκτίνου 2, 4ος Όροφος, Μυτιλήνη\nΑθήνα",
+
 
         // CONTACT
         contactTitle2: "Επικοινωνία",
@@ -918,7 +981,8 @@
         consent: "Με την αποστολή, συμφωνείτε ότι τα στοιχεία σας θα χρησιμοποιηθούν αποκλειστικά για επικοινωνία σχετικά με το αίτημά σας.",
 
         // FOOTER
-        footerRight: "Σχεδίαση: Μαρία Βουνάτσου"
+        footerRight: "Σχεδίαση: Μαρία Βουνάτσου",
+        footerOffice: "Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας"
       },
 
       en: {
@@ -985,11 +1049,16 @@
         p2: "Documentation",
         p3: "Consistency",
         p4: "Professionalism",
+        lawyerName: "Emmanouil Armenakas",
+        lawyerRole: "Attorney at the Supreme Court (Areios Pagos)",
+        lawyerAreas: "📍 Plomari 📍 Mytilene 📍 Athens",
+
 
         // LOCATION
         locationTitle: "Location",
         openMapPlomari: "📍 Open Plomari Map",
         openMapMytilini: "📍 Open Mytilene Map",
+        officeLocations: "Plomari, 81200 (Lesvos)\nIktinou 2, 4th Floor, Mytilene\nAthens",
 
         // CONTACT
         contactTitle2: "Contact",
@@ -1014,7 +1083,8 @@
         consent: "By sending, you agree that your details will be used exclusively to contact you regarding your request.",
 
         // FOOTER
-        footerRight: "Design: Maria Vounatsou"
+        footerRight: "Design: Maria Vounatsou",
+        footerOffice: "Law Office of Emmanouil P. Armenakas"
       }
     };
 
@@ -1068,6 +1138,28 @@
       applyLang("el");
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const emailBtn = document.querySelector(".email-btn");
+      if (!emailBtn) return;
+
+      emailBtn.addEventListener("click", (e) => {
+        // Δοκιμάζουμε πρώτα mailto
+        const mailto = emailBtn.getAttribute("href");
+        window.location.href = mailto;
+
+        // Αν ο handler δεν ανοίξει (συχνό σε macOS/Chrome), ανοίγουμε Gmail compose
+        const gmail = "https://mail.google.com/mail/?view=cm&fs=1&to=nomosarmenakas@gmail.com"
+          + "&su=" + encodeURIComponent("Επικοινωνία - Δικηγορικό Γραφείο")
+          + "&body=" + encodeURIComponent("Ονοματεπώνυμο:\nΤηλέφωνο:\nΜήνυμα:\n");
+
+        setTimeout(() => {
+          window.open(gmail, "_blank");
+        }, 600);
+      });
+    });
+  </script>
+
   </body>
   </html>
 
