@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Υπηρεσίες | Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας</title>
+
+  <style>
+    :root{
+      --bg: #0b1220;
+      --panel: #0f1a2f;
+      --text: #e9eef7;
+      --muted: rgba(233,238,247,.72);
+      --card: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.10);
+
+      --accent: #2284c5;
+      --accent2: #2284c5;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1280px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 700px at 18% 0%, rgba(34,132,197,.14), transparent 55%),
+        radial-gradient(900px 600px at 90% 18%, rgba(34,132,197,.12), transparent 55%),
+        linear-gradient(180deg, #070b14 0%, var(--bg) 40%, #070b14 100%);
+      line-height:1.55;
+    }
+
+    a{color:var(--accent2); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+
+    .topbar{
+      position:sticky; top:0; z-index:9999;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.68);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar .inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:220px;}
+    .mark{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(34,132,197,.95), rgba(34,132,197,.35));
+      box-shadow: 0 10px 25px rgba(34,132,197,.18);
+      position:relative;
+    }
+    .mark:after{
+      content:"";
+      position:absolute; inset:9px;
+      border-radius:10px;
+      border:2px solid rgba(7,11,20,.75);
+    }
+    .brand h1{font-size:14px; margin:0; letter-spacing:.4px; font-weight:750}
+    .brand p{margin:2px 0 0; font-size:12px; color:var(--muted)}
+
+    nav{display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+    nav a{
+      color:var(--text);
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    nav a:hover{background: rgba(255,255,255,.06); text-decoration:none}
+    nav a.active{background: rgba(255,255,255,.06);}
+
+    .cta{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color:var(--text);
+      font-weight:650;
+      font-size:13px;
+      cursor:pointer;
+    }
+    .btn:hover{background: rgba(255,255,255,.08)}
+    .btn.primary{
+      border-color: rgba(34,132,197,.55);
+      background: linear-gradient(135deg, rgba(34,132,197,.95), rgba(34,132,197,.25));
+      color:#0b1220;
+    }
+
+    .page-hero{padding:44px 0 10px}
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size:12px;
+    }
+    .dot{
+      width:9px; height:9px; border-radius:50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34,132,197,.14);
+    }
+    .page-hero h2{
+      margin:14px 0 10px;
+      font-size:38px;
+      line-height:1.08;
+      letter-spacing:-.6px;
+    }
+    .page-hero h2 span{color: rgba(34,132,197,.98)}
+    .page-hero p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+      max-width:72ch;
+    }
+
+    .services{padding:18px 0 34px}
+
+    .services-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    .service-block{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.04);
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+      overflow:hidden;
+    }
+
+    .service-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 16px;
+      border-bottom:1px solid var(--line);
+      background: rgba(7,11,20,.35);
+    }
+
+    .service-head h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-.2px;
+    }
+
+    .service-head .tag{
+      font-size:12px;
+      color: rgba(233,238,247,.82);
+      border:1px solid rgba(34,132,197,.35);
+      background: rgba(34,132,197,.12);
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    .service-body{
+      display:grid;
+      grid-template-columns: 160px 1fr;
+      gap:14px;
+      padding:16px;
+      align-items:start;
+    }
+
+    .service-img{
+      width:160px;
+      height:120px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .service-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(.95);
+    }
+
+    .service-text{
+      color: var(--muted);
+      font-size:13px;
+      line-height:1.65;
+    }
+
+    footer{
+      padding:26px 0 40px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    @media (max-width: 900px){
+      .services-grid{grid-template-columns: 1fr;}
+      .page-hero h2{font-size:32px;}
+    }
+    @media (max-width: 520px){
+      .service-body{grid-template-columns: 1fr;}
+      .service-img{width:100%; height:180px;}
+    }
+
+    .lang-toggle{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:42px;
+      height:38px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      cursor:pointer;
+      user-select:none;
+      font-size:18px;
+      line-height:1;
+    }
+    .lang-toggle:hover{
+      background: rgba(255,255,255,.08);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="inner">
+        <div class="brand">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <h1 data-i18n="brandTitle">Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας <br> και συνεργάτες</h1>
+            <p data-i18n="brandSubtitle">· Δικηγόρος Παρ’ Αρείω Πάγω</p>
+          </div>
+        </div>
+
+        <nav aria-label="Κύρια πλοήγηση">
+          <a href="index.html" data-i18n="navHome">Αρχική</a>
+          <a class="active" href="services.html" data-i18n="navServices">Υπηρεσίες</a>
+          <a href="index.html#about" data-i18n="navAbout">Σχετικά</a>
+          <a href="index.html#location" data-i18n="navLocation">Τοποθεσία</a>
+          <a href="index.html#contact" data-i18n="navContact">Επικοινωνία</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="tel:+302252031965" title="Κλήση στο σταθερό">📞 22520 31965</a>
+          <a class="btn primary" href="index.html#contact" data-i18n="book">Κλείστε ραντεβού</a>
+          <button class="lang-toggle" id="langBtn" type="button" aria-label="Switch language">🇬🇷</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="kicker">
+          <span class="dot"></span>
+          <span data-i18n="kicker">Ενδεικτικοί τομείς υποστήριξης</span>
+        </div>
+
+        <h2><span data-i18n="servicesTitle">Υπηρεσίες</span></h2>
+        <p data-i18n="servicesIntro">
+          Παρακάτω παρουσιάζονται βασικοί τομείς στους οποίους το γραφείο παρέχει νομική υποστήριξη.
+          Για εξατομικευμένη αξιολόγηση της υπόθεσής σας, επικοινωνήστε μαζί μας.
+        </p>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="wrap">
+        <div class="services-grid">
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="civilTitle">Αστικό Δίκαιο</h3>
+              <span class="tag" data-i18n="civilTag">Υποθέσεις ιδιωτών</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/astiko.jpg" alt="Αστικό Δίκαιο">
+              </div>
+              <div class="service-text" data-i18n="civilText">
+                Στον τομέα του αστικού δικαίου, το γραφείο μας αναλαμβάνει την παροχή νομικών υπηρεσιών σε υποθέσεις που απορρέουν από ιδιωτικές έννομες σχέσεις. Ειδικότερα, χειριζόμαστε διαφορές που αφορούν συμβατικές υποχρεώσεις, απαιτήσεις, μισθωτικές σχέσεις, αποζημιώσεις και γενικότερα ζητήματα αστικής ευθύνης.
+                Παρέχεται, επίσης, νομική υποστήριξη στη σύνταξη, αναθεώρηση και έλεγχο ιδιωτικών συμφωνητικών και λοιπών νομικών εγγράφων, με στόχο τη διασφάλιση της νομιμότητας των συναλλαγών και την αποτροπή μελλοντικών διαφορών.
+              </div>
+            </div>
+          </article>
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="criminalTitle">Ποινικό Δίκαιο</h3>
+              <span class="tag" data-i18n="criminalTag">Σε όλα τα στάδια</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/poiniko.jpg" alt="Ποινικό Δίκαιο">
+              </div>
+              <div class="service-text" data-i18n="criminalText">
+                Το γραφείο μας παρέχει νομική υποστήριξη σε υποθέσεις ποινικού δικαίου, με συστηματική προετοιμασία και συνεχή παρακολούθηση της υπόθεσης σε όλα τα στάδια της ποινικής διαδικασίας, από την προδικασία έως και την εκδίκαση ενώπιον των ποινικών δικαστηρίων. Αναλαμβάνεται η κατάρτιση και υποβολή μηνύσεων, εγκλήσεων, υπομνημάτων και κάθε συναφούς δικογράφου, καθώς και η πλήρης οργάνωση και αξιολόγηση του ποινικού φακέλου.
+                Το γραφείο διαθέτει εμπειρία στη διαχείριση υποθέσεων που αφορούν παραβάσεις της νομοθεσίας περί ναρκωτικών, οικονομικά και χρηματοοικονομικά εγκλήματα, εγκλήματα κατά της ζωής, καθώς και εγκλήματα κατά της ιδιοκτησίας, με γνώμονα την αποτελεσματική υπεράσπιση και την προάσπιση των δικαιωμάτων του εντολέα.
+              </div>
+            </div>
+          </article>
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="familyTitle">Οικογενειακό Δίκαιο</h3>
+              <span class="tag" data-i18n="familyTag">Με διακριτικότητα</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/oikogeneiako.jpg" alt="Οικογενειακό Δίκαιο">
+              </div>
+              <div class="service-text" data-i18n="familyText">
+                Το γραφείο μας χειρίζεται υποθέσεις οικογενειακού δικαίου με ιδιαίτερη προσοχή, διακριτικότητα και σεβασμό στη φύση των προσωπικών σχέσεων που εμπλέκονται. Παρέχεται νομική υποστήριξη σε υποθέσεις διαζυγίων, ρύθμισης επιμέλειας και επικοινωνίας ανηλίκων, διατροφής και γενικότερα ζητημάτων που άπτονται των οικογενειακών σχέσεων.
+                Η προσέγγιση του γραφείου εστιάζει στην ορθή νομική αξιολόγηση κάθε περίπτωσης και, όπου είναι εφικτό, στην επίτευξη συναινετικών λύσεων, χωρίς να αποκλείεται η δικαστική διεκδίκηση όταν αυτό επιβάλλεται από τα συμφέροντα του εντολέα.
+              </div>
+            </div>
+          </article>
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="inheritTitle">Κληρονομικά</h3>
+              <span class="tag" data-i18n="inheritTag">Διαδικασίες & διαφορές</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/klironomika.jpg" alt="Κληρονομικά">
+              </div>
+              <div class="service-text" data-i18n="inheritText">
+                Στον τομέα του κληρονομικού δικαίου, το γραφείο μας παρέχει νομική καθοδήγηση σε υποθέσεις που αφορούν τη διαδοχή περιουσίας και τις σχέσεις μεταξύ κληρονόμων. Αναλαμβάνονται υποθέσεις αποδοχής ή αποποίησης κληρονομιάς, ζητήματα που σχετίζονται με τη σύνταξη, την ερμηνεία και την ισχύ διαθηκών, καθώς και κληρονομικές διαφορές.
+                Η διαχείριση των υποθέσεων γίνεται με έμφαση στη σαφή ενημέρωση του εντολέα και στη σωστή οργάνωση των απαιτούμενων νομικών ενεργειών, με σκοπό την ομαλή και σύννομη ολοκλήρωση των σχετικών διαδικασιών.
+              </div>
+            </div>
+          </article>
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="adminTitle">Διοικητικές Υποθέσεις</h3>
+              <span class="tag" data-i18n="adminTag">Φορείς & υπηρεσίες</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/dioikitikes.jpg" alt="Διοικητικές Υποθέσεις">
+              </div>
+              <div class="service-text" data-i18n="adminText">
+                Το γραφείο μας παρέχει νομική υποστήριξη σε υποθέσεις διοικητικού χαρακτήρα, που αφορούν τη σχέση φυσικών ή νομικών προσώπων με τη Δημόσια Διοίκηση. Αναλαμβάνεται η σύνταξη και υποβολή ενστάσεων, προσφυγών, αιτήσεων και λοιπών διοικητικών εγγράφων ενώπιον αρμόδιων αρχών και υπηρεσιών.
+                Η προσέγγιση του γραφείου βασίζεται στην τεκμηριωμένη νομική επιχειρηματολογία, στην τήρηση των προβλεπόμενων προθεσμιών και στην ουσιαστική προάσπιση των δικαιωμάτων των εντολέων έναντι διοικητικών πράξεων ή παραλείψεων.
+              </div>
+            </div>
+          </article>
+
+          <article class="service-block">
+            <div class="service-head">
+              <h3 data-i18n="adviceTitle">Συμβουλευτική & Διαπραγμάτευση</h3>
+              <span class="tag" data-i18n="adviceTag">Πρόληψη διαφορών</span>
+            </div>
+            <div class="service-body">
+              <div class="service-img">
+                <img src="images/symvouleftiki.jpg" alt="Συμβουλευτική & Διαπραγμάτευση">
+              </div>
+              <div class="service-text" data-i18n="adviceText">
+                Η νομική συμβουλευτική αποτελεί βασικό πυλώνα της λειτουργίας του γραφείου μας, με σκοπό την πρόληψη νομικών κινδύνων και την ορθή λήψη αποφάσεων. Παρέχεται νομική καθοδήγηση πριν από τη σύναψη συμβάσεων, έλεγχος και αξιολόγηση νομικών εγγράφων, καθώς και υποστήριξη κατά τη διεξαγωγή διαπραγματεύσεων.
+                Ιδιαίτερη έμφαση δίνεται στην εξωδικαστική επίλυση διαφορών και στην αναζήτηση συναινετικών λύσεων, με στόχο την αποτελεσματική προστασία των συμφερόντων του εντολέα και την αποφυγή χρονοβόρων δικαστικών διαδικασιών, όπου αυτό είναι εφικτό.
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+        <div>© <span id="year"></span> <span data-i18n="footerOffice">Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας</span></div>
+        <div style="opacity:.9" data-i18n="footerRight">Σχεδίαση: Μαρία Βουνάτσου</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    const I18N = {
+      el: {
+        // BRAND
+        brandTitle: "Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας\nκαι συνεργάτες",
+        brandSubtitle: "· Δικηγόρος Παρ’ Αρείω Πάγω",
+
+        // NAV
+        navHome: "Αρχική",
+        navServices: "Υπηρεσίες",
+        navAbout: "Σχετικά",
+        navLocation: "Τοποθεσία",
+        navContact: "Επικοινωνία",
+
+        // CTA
+        book: "Κλείστε ραντεβού",
+
+        // HERO
+        kicker: "Ενδεικτικοί τομείς υποστήριξης",
+        servicesTitle: "Υπηρεσίες",
+        servicesIntro:
+          "Παρακάτω παρουσιάζονται βασικοί τομείς στους οποίους το γραφείο παρέχει νομική υποστήριξη.\n\nΓια εξατομικευμένη αξιολόγηση της υπόθεσής σας, επικοινωνήστε μαζί μας.",
+
+        // SERVICES
+        civilTitle: "Αστικό Δίκαιο",
+        civilTag: "Υποθέσεις ιδιωτών",
+        civilText:
+          "Στον τομέα του αστικού δικαίου, το γραφείο μας αναλαμβάνει την παροχή νομικών υπηρεσιών σε υποθέσεις που απορρέουν από ιδιωτικές έννομες σχέσεις. Ειδικότερα, χειριζόμαστε διαφορές που αφορούν συμβατικές υποχρεώσεις, απαιτήσεις, μισθωτικές σχέσεις, αποζημιώσεις και γενικότερα ζητήματα αστικής ευθύνης.\n\nΠαρέχεται, επίσης, νομική υποστήριξη στη σύνταξη, αναθεώρηση και έλεγχο ιδιωτικών συμφωνητικών και λοιπών νομικών εγγράφων, με στόχο τη διασφάλιση της νομιμότητας των συναλλαγών και την αποτροπή μελλοντικών διαφορών.",
+
+        criminalTitle: "Ποινικό Δίκαιο",
+        criminalTag: "Σε όλα τα στάδια",
+        criminalText:
+          "Το γραφείο μας παρέχει νομική υποστήριξη σε υποθέσεις ποινικού δικαίου, με συστηματική προετοιμασία και συνεχή παρακολούθηση της υπόθεσης σε όλα τα στάδια της ποινικής διαδικασίας, από την προδικασία έως και την εκδίκαση ενώπιον των ποινικών δικαστηρίων. Αναλαμβάνεται η κατάρτιση και υποβολή μηνύσεων, εγκλήσεων, υπομνημάτων και κάθε συναφούς δικογράφου, καθώς και η πλήρης οργάνωση και αξιολόγηση του ποινικού φακέλου.\n\nΤο γραφείο διαθέτει εμπειρία στη διαχείριση υποθέσεων που αφορούν παραβάσεις της νομοθεσίας περί ναρκωτικών, οικονομικά και χρηματοοικονομικά εγκλήματα, εγκλήματα κατά της ζωής, καθώς και εγκλήματα κατά της ιδιοκτησίας, με γνώμονα την αποτελεσματική υπεράσπιση και την προάσπιση των δικαιωμάτων του εντολέα.",
+
+        familyTitle: "Οικογενειακό Δίκαιο",
+        familyTag: "Με διακριτικότητα",
+        familyText:
+          "Το γραφείο μας χειρίζεται υποθέσεις οικογενειακού δικαίου με ιδιαίτερη προσοχή, διακριτικότητα και σεβασμό στη φύση των προσωπικών σχέσεων που εμπλέκονται. Παρέχεται νομική υποστήριξη σε υποθέσεις διαζυγίων, ρύθμισης επιμέλειας και επικοινωνίας ανηλίκων, διατροφής και γενικότερα ζητημάτων που άπτονται των οικογενειακών σχέσεων.\n\nΗ προσέγγιση του γραφείου εστιάζει στην ορθή νομική αξιολόγηση κάθε περίπτωσης και, όπου είναι εφικτό, στην επίτευξη συναινετικών λύσεων, χωρίς να αποκλείεται η δικαστική διεκδίκηση όταν αυτό επιβάλλεται από τα συμφέροντα του εντολέα.",
+
+        inheritTitle: "Κληρονομικά",
+        inheritTag: "Διαδικασίες & διαφορές",
+        inheritText:
+          "Στον τομέα του κληρονομικού δικαίου, το γραφείο μας παρέχει νομική καθοδήγηση σε υποθέσεις που αφορούν τη διαδοχή περιουσίας και τις σχέσεις μεταξύ κληρονόμων. Αναλαμβάνονται υποθέσεις αποδοχής ή αποποίησης κληρονομιάς, ζητήματα που σχετίζονται με τη σύνταξη, την ερμηνεία και την ισχύ διαθηκών, καθώς και κληρονομικές διαφορές.\n\nΗ διαχείριση των υποθέσεων γίνεται με έμφαση στη σαφή ενημέρωση του εντολέα και στη σωστή οργάνωση των απαιτούμενων νομικών ενεργειών, με σκοπό την ομαλή και σύννομη ολοκλήρωση των σχετικών διαδικασιών.",
+
+        adminTitle: "Διοικητικές Υποθέσεις",
+        adminTag: "Φορείς & υπηρεσίες",
+        adminText:
+          "Το γραφείο μας παρέχει νομική υποστήριξη σε υποθέσεις διοικητικού χαρακτήρα, που αφορούν τη σχέση φυσικών ή νομικών προσώπων με τη Δημόσια Διοίκηση. Αναλαμβάνεται η σύνταξη και υποβολή ενστάσεων, προσφυγών, αιτήσεων και λοιπών διοικητικών εγγράφων ενώπιον αρμόδιων αρχών και υπηρεσιών.\n\nΗ προσέγγιση του γραφείου βασίζεται στην τεκμηριωμένη νομική επιχειρηματολογία, στην τήρηση των προβλεπόμενων προθεσμιών και στην ουσιαστική προάσπιση των δικαιωμάτων των εντολέων έναντι διοικητικών πράξεων ή παραλείψεων.",
+
+        adviceTitle: "Συμβουλευτική & Διαπραγμάτευση",
+        adviceTag: "Πρόληψη διαφορών",
+        adviceText:
+          "Η νομική συμβουλευτική αποτελεί βασικό πυλώνα της λειτουργίας του γραφείου μας, με σκοπό την πρόληψη νομικών κινδύνων και την ορθή λήψη αποφάσεων. Παρέχεται νομική καθοδήγηση πριν από τη σύναψη συμβάσεων, έλεγχος και αξιολόγηση νομικών εγγράφων, καθώς και υποστήριξη κατά τη διεξαγωγή διαπραγματεύσεων.\n\nΙδιαίτερη έμφαση δίνεται στην εξωδικαστική επίλυση διαφορών και στην αναζήτηση συναινετικών λύσεων, με στόχο την αποτελεσματική προστασία των συμφερόντων του εντολέα και την αποφυγή χρονοβόρων δικαστικών διαδικασιών, όπου αυτό είναι εφικτό.",
+
+        // FOOTER
+        footerOffice: "Δικηγορικό Γραφείο Εμμανουήλ Π. Αρμενάκας",
+        footerRight: "Σχεδίαση: Μαρία Βουνάτσου"
+      },
+
+      en: {
+        // BRAND
+        brandTitle: "Law Office of Emmanouil P. Armenakas\nand Associates",
+        brandSubtitle: "· Attorney at the Supreme Court (Areios Pagos)",
+
+        // NAV
+        navHome: "Home",
+        navServices: "Services",
+        navAbout: "About",
+        navLocation: "Location",
+        navContact: "Contact",
+
+        // CTA
+        book: "Book an appointment",
+
+        // HERO
+        kicker: "Indicative practice areas",
+        servicesTitle: "Services",
+        servicesIntro:
+          "Below are key areas in which the office provides legal services.\n\nFor a case-specific assessment, please contact us.",
+
+        // SERVICES
+        civilTitle: "Civil Law",
+        civilTag: "Private matters",
+        civilText:
+          "In the field of civil law, our office provides legal services in matters arising from private-law relationships. In particular, we handle disputes relating to contractual obligations, claims, leases, compensation, and civil liability matters.\n\nWe also provide legal support for the drafting, review and legal audit of private agreements and other legal documents, aiming to ensure the legality of transactions and to prevent future disputes.",
+
+        criminalTitle: "Criminal Law",
+        criminalTag: "At all stages",
+        criminalText:
+          "Our office provides legal assistance in criminal law matters, with systematic preparation and continuous handling of each case throughout the criminal procedure, from the pre-trial stage to proceedings before the competent criminal courts. We undertake the drafting and filing of criminal complaints and related submissions, memoranda and pleadings, as well as the comprehensive organization and evaluation of the case file.\n\nThe office has experience in matters involving drug-related offences, financial and economic crimes, crimes against life, and crimes against property, with a focus on effective defence and the protection of the client’s procedural rights.",
+
+        familyTitle: "Family Law",
+        familyTag: "With discretion",
+        familyText:
+          "Our office handles family law matters with particular care, discretion and respect for the personal relationships involved. We provide legal assistance in divorce proceedings, arrangements concerning parental responsibility/custody and contact with minors, maintenance, and related family law issues.\n\nOur approach focuses on sound legal assessment and, where feasible, the pursuit of amicable settlements, without excluding judicial action when required to safeguard the client’s interests.",
+
+        inheritTitle: "Inheritance Law",
+        inheritTag: "Proceedings & disputes",
+        inheritText:
+          "In the field of inheritance law, our office provides legal guidance in matters concerning succession and relations between heirs. We undertake matters involving acceptance or renunciation of inheritance, issues relating to the drafting, interpretation and validity of wills, as well as inheritance disputes.\n\nEach matter is handled with clear client briefing and proper structuring of the required legal steps, aiming at the lawful and orderly completion of the relevant procedures.",
+
+        adminTitle: "Administrative Matters",
+        adminTag: "Authorities & services",
+        adminText:
+          "Our office provides legal support in administrative matters concerning the relationship between individuals or legal entities and public administration. We undertake the drafting and filing of objections, administrative appeals, applications and related submissions before competent authorities and public services.\n\nOur handling is based on substantiated legal reasoning, compliance with statutory deadlines, and the effective protection of the client’s rights against administrative acts or omissions.",
+
+        adviceTitle: "Legal Advisory & Negotiation",
+        adviceTag: "Dispute prevention",
+        adviceText:
+          "Legal advisory services are a core part of our practice, aiming at risk prevention and sound decision-making. We provide legal guidance prior to entering into agreements, review and legal audit of documents, and support during negotiations.\n\nWe place particular emphasis on out-of-court dispute resolution and consensual arrangements, seeking to protect the client’s interests effectively and, where possible, to avoid lengthy court proceedings.",
+
+        // FOOTER
+        footerOffice: "Law Office of Emmanouil P. Armenakas",
+        footerRight: "Design: Maria Vounatsou"
+      }
+    };
+
+    let currentLang = "el";
+
+    function setMultilineText(el, value){
+      if (value.includes("\n")) {
+        el.innerHTML = value.split("\n").map(line => line.trim()).join("<br>");
+      } else {
+        el.textContent = value;
+      }
+    }
+
+    function applyLang(lang){
+      currentLang = lang;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const val = I18N[lang][key];
+        if (typeof val === "string") setMultilineText(el, val);
+      });
+
+      const btn = document.getElementById("langBtn");
+      if (btn){
+        btn.textContent = (lang === "el") ? "🇬🇷" : "🇬🇧";
+        btn.setAttribute("aria-label", (lang === "el") ? "Switch to English" : "Αλλαγή σε Ελληνικά");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const btn = document.getElementById("langBtn");
+      if (!btn) return;
+
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        applyLang(currentLang === "el" ? "en" : "el");
+      });
+
+      applyLang("el");
+    });
+  </script>
+</body>
+</html>
