@@ -12,7 +12,7 @@ require __DIR__ . '/phpmailer/src/SMTP.php';
  * - App Password αυτού του Gmail
  */
 $gmailUser = "nomosarmenakas@gmail.com";            // αυτό θα είναι το "From"
-$gmailAppPassword = "eappxinxioepcwev";     // App Password του nomosarmenakas@gmail.com
+$gmailAppPassword = "PASSWORD";     // App Password του nomosarmenakas@gmail.com
 $toEmail = "nomosarmenakas@gmail.com";              // παραλήπτης
 
 // Honeypot anti-spam
